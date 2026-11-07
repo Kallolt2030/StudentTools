@@ -136,8 +136,9 @@ StudentTools/
 
 | Nombre | Matrícula | GitHub |
 |---|---|---|
-| [Nombre del integrante] | [Matrícula] | [Usuario de GitHub] |
-| [Nombre del integrante] | [Matrícula] | [Usuario de GitHub] |
+| [Christopher Esquivel Garcia] | [230747] | [pipokuer1] |
+| [Axel Ivan Feliciano Hernandes] | [230538] | [en3y4hurbq43] |
+| [Karol Teresa Bernal Gallegos] | [230627] | [Kallolt2030] |
 
 ## Institución
 
