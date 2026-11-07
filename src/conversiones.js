@@ -44,3 +44,13 @@ export function centimetrosAMetros(centimetros) {
 
   return centimetros / 100;
 }
+
+export function metrosACentimetros(metros) {
+  validarNumero(metros);
+
+  if (metros < 0) {
+    throw new Error('La distancia no puede ser negativa');
+  }
+
+  return metros * 100;
+}
