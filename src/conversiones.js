@@ -54,3 +54,15 @@ export function metrosACentimetros(metros) {
 
   return metros * 100;
 }
+
+export function calcularAsistencia(asistencias, totalClases) {
+  if (!Number.isInteger(asistencias) ||
+      !Number.isInteger(totalClases) ||
+      totalClases <= 0 ||
+      asistencias < 0 ||
+      asistencias > totalClases) {
+    throw new Error('Datos de asistencia invalidos');
+  }
+
+  return (asistencias / totalClases) * 100;
+}
