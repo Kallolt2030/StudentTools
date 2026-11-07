@@ -5,7 +5,8 @@ import {
   fahrenheitACelsius,
   kilometrosAMetros,
   metrosAKilometros,
-  centimetrosAMetros
+  centimetrosAMetros,
+  metrosACentimetros
 } from '../src/conversiones.js';
 
 describe('Módulo de conversiones', () => {
@@ -75,5 +76,21 @@ describe('Módulo de conversiones', () => {
 
   it('rechaza centímetros negativos', () => {
     expect(() => centimetrosAMetros(-50)).toThrow();
+  });
+
+  it('convierte metros a centimetros', () => {
+  expect(metrosACentimetros(2)).toBe(200);
+  });
+
+  it('convierte cero metros a centimetros', () => {
+    expect(metrosACentimetros(0)).toBe(0);
+  });
+
+  it('rechaza metros negativos', () => {
+    expect(() => metrosACentimetros(-2)).toThrow();
+  });
+
+  it('rechaza valores de texto', () => {
+    expect(() => metrosACentimetros('dos')).toThrow();
   });
 });
