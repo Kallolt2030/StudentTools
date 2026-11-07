@@ -5,7 +5,8 @@ import {
   esContrasenaSegura,
   esNumeroValido,
   esMayorDeEdad,
-  limpiarTexto
+  limpiarTexto, 
+  esTextoValido
 } from '../src/validaciones.js';
 
 describe('Módulo de validaciones', () => {
@@ -87,5 +88,21 @@ describe('Módulo de validaciones', () => {
 
   it('rechaza valores que no sean texto al limpiar', () => {
     expect(() => limpiarTexto(123)).toThrow();
+  });
+
+  it('acepta un texto valido', () => {
+  expect(esTextoValido('Hola')).toBe(true);
+  });
+
+  it('rechaza un texto vacio', () => {
+    expect(esTextoValido('')).toBe(false);
+  });
+
+  it('rechaza un texto con solo espacios', () => {
+    expect(esTextoValido('   ')).toBe(false);
+  });
+
+  it('rechaza valores numericos', () => {
+    expect(esTextoValido(123)).toBe(false);
   });
 });
