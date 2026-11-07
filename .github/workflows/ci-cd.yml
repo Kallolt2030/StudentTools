@@ -88,7 +88,9 @@ jobs:
       - name: Subir reporte a GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
+          name: github-pages
           path: ./coverage
+          retention-days: 1
 
       - name: Publicar en GitHub Pages
         id: deployment
