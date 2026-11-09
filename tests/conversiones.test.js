@@ -6,7 +6,8 @@ import {
   kilometrosAMetros,
   metrosAKilometros,
   centimetrosAMetros,
-  metrosACentimetros
+  metrosACentimetros,
+  calcularAsistencia
 } from '../src/conversiones.js';
 
 describe('Módulo de conversiones', () => {
@@ -92,5 +93,21 @@ describe('Módulo de conversiones', () => {
 
   it('rechaza valores de texto', () => {
     expect(() => metrosACentimetros('dos')).toThrow();
+  });
+
+  it('calcula asistencia del 80 por ciento', () => {
+    expect(calcularAsistencia(8, 10)).toBe(80);
+  });
+
+  it('calcula asistencia completa', () => {
+    expect(calcularAsistencia(10, 10)).toBe(100);
+  });
+
+  it('rechaza un total de cero clases', () => {
+    expect(() => calcularAsistencia(0, 0)).toThrow();
+  });
+
+  it('rechaza asistencias mayores al total', () => {
+    expect(() => calcularAsistencia(12, 10)).toThrow();
   });
 });
