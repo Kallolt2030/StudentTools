@@ -5,7 +5,9 @@ import {
   fahrenheitACelsius,
   kilometrosAMetros,
   metrosAKilometros,
-  centimetrosAMetros
+  centimetrosAMetros,
+  metrosACentimetros,
+  calcularAsistencia
 } from '../src/conversiones.js';
 
 describe('Módulo de conversiones', () => {
@@ -75,5 +77,37 @@ describe('Módulo de conversiones', () => {
 
   it('rechaza centímetros negativos', () => {
     expect(() => centimetrosAMetros(-50)).toThrow();
+  });
+
+  it('convierte metros a centimetros', () => {
+  expect(metrosACentimetros(2)).toBe(200);
+  });
+
+  it('convierte cero metros a centimetros', () => {
+    expect(metrosACentimetros(0)).toBe(0);
+  });
+
+  it('rechaza metros negativos', () => {
+    expect(() => metrosACentimetros(-2)).toThrow();
+  });
+
+  it('rechaza valores de texto', () => {
+    expect(() => metrosACentimetros('dos')).toThrow();
+  });
+
+  it('calcula asistencia del 80 por ciento', () => {
+    expect(calcularAsistencia(8, 10)).toBe(80);
+  });
+
+  it('calcula asistencia completa', () => {
+    expect(calcularAsistencia(10, 10)).toBe(100);
+  });
+
+  it('rechaza un total de cero clases', () => {
+    expect(() => calcularAsistencia(0, 0)).toThrow();
+  });
+
+  it('rechaza asistencias mayores al total', () => {
+    expect(() => calcularAsistencia(12, 10)).toThrow();
   });
 });

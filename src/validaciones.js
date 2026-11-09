@@ -33,3 +33,8 @@ export function limpiarTexto(texto) {
 
   return texto.trim().replace(/\s+/g, ' ');
 }
+
+export function esTextoValido(texto) {
+  return typeof texto === 'string' &&
+    texto.trim().length > 0;
+}
