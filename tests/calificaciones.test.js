@@ -1,6 +1,7 @@
 
 import { describe, it, expect } from 'vitest';
 import {
+  contarAprobados,contarReprobados,ordenarCalificaciones,
   calcularPromedio,
   obtenerCalificacionMayor,
   obtenerCalificacionMenor,
@@ -105,3 +106,44 @@ it('rechaza una calificación inválida al determinar el estado', () => {
 });
 
 });
+
+
+//pipillo 
+
+
+  it('cuenta las calificaciones aprobadas', () => {
+    expect(contarAprobados([8, 5, 9, 6, 10])).toBe(3);
+  });
+
+  it('rechaza una lista vacía al contar aprobados', () => {
+    expect(() => contarAprobados([])).toThrow();
+  });
+
+  it('rechaza calificaciones inválidas al contar aprobados', () => {
+    expect(() => contarAprobados([8, 11])).toThrow();
+  });
+
+  it('cuenta las calificaciones reprobadas', () => {
+    expect(contarReprobados([8, 5, 9, 6, 10])).toBe(2);
+  });
+
+  it('rechaza una lista vacía al contar reprobados', () => {
+    expect(() => contarReprobados([])).toThrow();
+  });
+
+  it('rechaza calificaciones inválidas al contar reprobados', () => {
+    expect(() => contarReprobados([8, -1])).toThrow();
+  });
+
+  it('ordena las calificaciones de menor a mayor', () => {
+    expect(ordenarCalificaciones([8, 5, 10, 6, 9]))
+      .toEqual([5, 6, 8, 9, 10]);
+  });
+
+  it('rechaza una lista vacía al ordenar', () => {
+    expect(() => ordenarCalificaciones([])).toThrow();
+  });
+
+  it('rechaza calificaciones inválidas al ordenar', () => {
+    expect(() => ordenarCalificaciones([8, 11])).toThrow();
+  });
