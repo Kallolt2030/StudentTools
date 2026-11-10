@@ -48,3 +48,18 @@ function validarNota(nota) {
     throw new Error('La calificación debe estar entre 0 y 10');
   }
 }
+//Pitillo
+export function contarAprobados(calificaciones) {
+  validarLista(calificaciones);
+  return calificaciones.filter(nota => nota >= 7).length;
+}
+
+export function contarReprobados(calificaciones) {
+  validarLista(calificaciones);
+  return calificaciones.filter(nota => nota < 7).length;
+}
+
+export function ordenarCalificaciones(calificaciones) {
+  validarLista(calificaciones);
+  return [...calificaciones].sort((a, b) => a - b);
+}
